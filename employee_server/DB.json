@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "admin user",
+      "email": "admin@demoapp.com",
+      "active": "1",
+      "password": "demoapp123"
+    },
+    {
+      "active": "1",
+      "email": "justinvarghese601@gmail.com",
+      "name": "justinvarghese",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "firefly3823",
+      "email": "justinvarghese601@gmail.com",
+      "active": "1"
+    },
+    {
+      "id": "4",
+      "name": "stevin",
+      "email": "stevin@gmail.com",
+      "active": "1"
+    }
+  ]
+}

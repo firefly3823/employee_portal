@@ -1,0 +1,51 @@
+<div class="d-flex">
+    <div style="height:89vh; width: 100px;" class="sidebar bg-dark text-light p-3 d-flex flex-column">
+        <a style="text-decoration: none; margin-top: 10px; font-weight: bold; color: white;"
+            routerLink="/dashboard">Dashboard</a>
+        <a style="text-decoration: none; margin-top: 10px; font-weight: bold;color: white;"
+            routerLink="/users">Users</a>
+        <a style="text-decoration: none; margin-top: 10px; font-weight: bold;color: white;" routerLink="edit/1">Edit
+            user</a>
+    </div>
+    <div class="d-flex justify-content-center align-items-center w-100">
+
+        <div style="width: 45rem;" class="p-5 rounded-4 shadow mt-5">
+            <h1 class="p-3 text-center fw-bolder">ADD USER</h1>
+
+            <form #addUserForm="ngForm" >
+                <div class="mb-5">
+
+                    <input type="Text" name="userid" #userIdinput="ngModel" required pattern="[0-9]*" [(ngModel)]="user.id" class="form-control" placeholder="User id">
+                    <span *ngIf="userIdinput.invalid && userIdinput.touched" class="text-danger">Invalid User ID</span>
+                </div>
+                <div class="mb-5">
+                    <input type="Text" class="form-control" [(ngModel)]="user.name" #userNameInput="ngModel" name="username" placeholder="User Name" required>
+                    <span *ngIf="userNameInput.invalid && userNameInput.touched" class="text-danger">Invalid
+                        Username</span>
+                </div>
+                <div class="mb-5">
+                    <input type="Text" [(ngModel)]="user.email" #userEmailInput="ngModel" name="email" class="form-control" placeholder="E-Mail" required>
+                    <span *ngIf="userEmailInput.invalid && userEmailInput.touched" class="text-danger">Invalid
+                        Username</span>
+                </div>
+                <div class="mb-5">
+                <div class="form-floating">
+                    <select class="form-select" #userActiveInput="ngModel" [(ngModel)]="user.active" required name="active"  id="floatingSelect" aria-label="Floating label select example">
+                        <option selected hidden>User Status</option>
+                        <option value="1">Active</option>
+                        <option value="2">Inactive</option>
+                        
+                    </select>
+                    <span *ngIf="userActiveInput.invalid && userActiveInput.touched" class="text-danger">Invalid
+                        Status</span>
+                    <label for="floatingSelect">User Status</label>
+                </div>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <button (click)="cancel()" class="btn btn-primary">Cancel</button>
+                    <button (click)="addUser()" type="submit" [disabled]="addUserForm.invalid" class="btn btn-primary">ADD</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

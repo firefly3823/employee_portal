@@ -1,0 +1,29 @@
+<div style="width:100%; height:85vh" class="container d-flex justify-content-center align-items-center">
+
+        <div class="card shadow" style="width: 50rem;">
+            <div class="row ">
+                <div class="col text-center" >
+                    <img class="img-fluid" src="https://imgs.search.brave.com/EoTBTRJAUNDTkl0W85bVb0YGBYCdrzDEFqThZOZKN7k/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG5p/Lmljb25zY291dC5j/b20vaWxsdXN0cmF0/aW9uL3ByZW1pdW0v/dGh1bWIvbG9naW4t/YWNjZXNzLWRlbmll/ZC00NTYwNjIwLTM3/ODQxODcucG5nP2Y9/d2VicA" alt="test">
+                </div>
+                <div  class="col p-5 d-flex flex-column justify-content-center">
+                    <h2 class="text-center fw-bolder">LOGIN</h2>
+                    <form #loginForm="ngForm" (ngSubmit)="login()">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" name="email" required email class="form-control" id="email" [(ngModel)]="email"  #useremailInput="ngModel" aria-describedby="emailHelp">
+                            <span *ngIf="useremailInput.invalid && useremailInput.touched" class="text-danger">Invalid Email</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password"  required pattern="[a-zA-Z0-9]*" #userpassword="ngModel" [(ngModel)]="password" id="password" aria-describedby="emailHelp">
+                            <span *ngIf="userpassword.invalid && userpassword.touched" class="text-danger">Invalid Password</span>
+                        </div>
+                        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success w-100">Submit</button>
+                        </form>
+                </div>
+            
+        </div>
+
+    
+
+</div>
