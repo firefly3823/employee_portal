@@ -1,8 +1,23 @@
 <div *ngIf="!editAdminStatus" class="update-admin mt-5 text-center">
     <img [src]='profileImage' alt="">
-    <button (click)="editAdminBtnClick()" class="btn btn-link fs-5 mt-3"><i class="fa-solid fa-pen"></i>Edit admin details!</button>
+    <button (click)="editAdminBtnClick()" class="btn btn-link fs-5 mt-3"><i class="fa-solid fa-pen"></i>Edit admin
+        details!</button>
 </div>
 
-<div class="update-admin ">
-    
+<div *ngIf="editAdminStatus" class="update-details mt-2 p-2 text-center ">
+    <h5 style="height: 30px;" class="fs-5">Update admin details</h5>
+    <label for="">
+        <input type="file" style="display: none;">
+        <img width="150px" height="150px" class="img-fluid rounded"
+            src="https://imgs.search.brave.com/YBtCU0DUMBebinEf3wj3ig0xr47-pB0jQnrqaLV8Sos/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE3/NjM2MzY4Ni92ZWN0/b3Ivc21pbGluZy15/b3VuZy1hc2lhbi1n/aXJsLXByb2ZpbGUt/YXZhdGFyLXZlY3Rv/ci1pY29uLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1RdXla/Sk5LZXhGUWdEUHI5/dTkxaEtpZVdLT1li/YUZ4UGIwYjBnd21k/LUxvPQ"
+            alt="profile">
+    </label>
+    <input placeholder="Admin Name" class="form-control mb-2" type="text">
+    <input placeholder="Admin Password" class="form-control mb-2" type="text">
+    <div class="d-flex justify-content-around mt-3">
+        <input type="button" class="btn btn-warning" value="cancel">
+        <input type="button" class="btn btn-success" value="cancel">
+
+    </div>
+
 </div>
