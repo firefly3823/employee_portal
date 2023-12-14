@@ -11,7 +11,20 @@
         
         <div><button routerLink="add" class="btn btn-primary">add user</button></div>
     </div>
-    <label for="search"> Search Here<input type="text" id="search" class="form-control" placeholder="Search Employee"></label>
+    <div class="d-flex justify-content-between">
+        <div>
+            <label for="search"> Search Here<input type="text" [(ngModel)]="searchKey" id="search" class="form-control" placeholder="Search Employee" ></label>
+            <button mat-button class="btn btn-secondary" [matMenuTriggerFor]="sort">Sort</button>
+            <mat-menu #sort="matMenu">
+                <button (click)="sortById()" mat-menu-item>By id</button>
+                <button (click)="sortByname()" mat-menu-item>by name</button>
+            </mat-menu>
+        </div>
+        <div>
+            <button (click)="generatePDF()" class="btn btn-success">Export</button>
+        </div>
+
+    </div>
     <div class="dashboard d-flex justify-content-center align-items-center flex-column w-100">
 
         <div class="title">User Table</div>
@@ -30,7 +43,7 @@
             </thead>
             <tbody>
                 <!-- Add table rows with user data dynamically -->
-                <tr *ngFor="let user of allUsers | search: 'fire' " [hidden]="user.id==='1'">
+                <tr *ngFor="let user of allUsers | search: searchKey | paginate:{itemsPerPage:4, currentPage:p} " [hidden]="user.id==='1'">
                     <td>{{user.id}}</td>
                     <td>{{user.name}}</td>
                     <td>{{user.email}}</td>
@@ -41,9 +54,14 @@
                         <button type="button" (click)="removeUser(user.id)" class="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>
+                <tr *ngIf="(allUsers|search:searchKey).length===0">
+                    <p>User Not exist</p>
+                </tr>
                 <!-- Add more rows as needed -->
             </tbody>
         </table>
+        <div class="text-center"><pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
         <!-- End Table -->
 
     </div>

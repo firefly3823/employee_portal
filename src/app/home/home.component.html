@@ -4,7 +4,40 @@
             routerLink="/dashboard">Dashboard</a>
         <a style="text-decoration: none; margin-top: 10px; font-weight: bold;color: white;" routerLink="/users">Users</a>
     </div>
-    <div class="p-5">
-        <h1>WELCOME ADMIN</h1>
+    <div class="p-5 w-100">
+        <div class="row">
+            <div class="col-lg-8">
+    
+                    <div style="background-image: url('https://static.vecteezy.com/system/resources/previews/001/082/480/non_2x/abstract-orange-and-black-watercolor-banner-design-vector.jpg');width: 100%;height: 180px;" class="admin-banner rounded d-flex align-items-center">
+                        <h1 class="ms-5 fw bolder de-flex align-items-center text-light fs-3">
+                        <i style="cursor: pointer;" (click)='menuBtnClick()'  class="fa-solid text-light fa-bars me-3"></i><span>Welcome {{admin_name}}</span>
+                        </h1>
+                    </div>
+
+                    <div class="row m-4">
+                        <mat-card  class="demo-inline-calendar-card col-lg-5 border">
+                            <mat-calendar [(selected)]="selected" ></mat-calendar>
+                        </mat-card>
+                    <div class="col-lg-1">
+
+                    </div>
+                        <div class="col-lg-6  border">
+                            <app-chart></app-chart>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-lg-4">
+                <div style="height: 400px;" class="edit-admin border rounded p-2">
+                <app-update-admin></app-update-admin>
+
+                </div>
+
+                <div style="height: 150px;background-image: url();" class="mt-2 border rounded shadow p-2 bg-dark text-light d-flex align-items-center justify-content-center">
+                    <h2 class="fw-bolder"><i class="fa-solid fa-users me-2"></i>Employees: 12</h2>
+                </div>
+            </div>
+            
+
+        </div>
     </div>
 </div>

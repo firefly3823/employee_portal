@@ -11,8 +11,10 @@ export class SearchPipe implements PipeTransform {
       return allUsers
     }
     allUsers.forEach((item:any)=>{
-      if(item.name.trim().toLowerCase().include(searchKey.trim().toLowerCase())){
-        result.push(item)
+      if (
+        item.name.trim().toLowerCase().includes(searchKey.trim().toLowerCase())
+      ) {
+        result.push(item);
       }
     })
     return result;
