@@ -15,14 +15,23 @@ export class HomeComponent implements OnInit {
 
   constructor(private api: UserApiService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getTotalEmployeeCount();
+    if(localStorage.getItem('admin_name')) {
+      this.admin_name = localStorage.getItem('admin_name') || '';
+    }
+
+  }
+
   menuBtnClick() {
     this.showSideBar = !this.showSideBar;
+    
   }
 
   getTotalEmployeeCount() {
     this.api.getAllUsers().subscribe((res: any) => {
       this.employee_count = res.length;
+      // console.log(res.length);
     });
   }
 

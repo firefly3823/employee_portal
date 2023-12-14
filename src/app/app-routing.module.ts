@@ -19,7 +19,6 @@ const routes: Routes = [{ path: 'users',canActivate:[authGuard], loadChildren: (
 }
 
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

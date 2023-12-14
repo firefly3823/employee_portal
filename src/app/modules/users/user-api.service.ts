@@ -14,7 +14,9 @@ export class UserApiService {
   }
   //get all users
   getAllUsers() {
+    console.log("all users get");
     return this.http.get(`${this.SERVER_URL}/users`);
+
   }
   //delete user
 

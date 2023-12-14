@@ -8,7 +8,9 @@ import { TostrService } from '../services/tostr.service';
   styleUrls: ['./update-admin.component.css'],
 })
 export class UpdateAdminComponent implements OnInit {
-  profileImage: string = './assets/images/user-avatar.webp';
+
+  profileImage:string = '/assets/image/user-avatar.webp'
+
   editAdminStatus: boolean = false;
   adminDetail:any = {}
   @Output() onAdminChange = new EventEmitter()
